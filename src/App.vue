@@ -22,16 +22,18 @@
       <v-container class="my-5">
         <v-row>
           <v-col cols="12" sm="12" md="8" lg="8">
+            <v-card>
             <div id="map"></div>
+            </v-card>
           </v-col>
 
           <v-col cols="12" sm="12" md="4" lg="4">
             <v-simple-table class="green lighten-1" dark v-if="gotData == true">
               <template v-slot:default>
-                <tbody>
+                <tbody data-cy="city-name">
                   <tr>
                     <td>Location</td>
-                    <td>{{getCityName}}</td>
+                    <td >{{getCityName}}</td>
                   </tr>
                   <tr>
                     <td>Condition</td>
