@@ -66,7 +66,7 @@ export default new Vuex.Store({
     getWeatherData({commit}, payload){
       axios({
         method: "get",
-        url: `http://api.openweathermap.org/data/2.5/weather?lat=${payload.currentLat}&lon=${payload.currentLon}&units=imperial&appid=${this.state.openWeatherKey}`,
+        url: `https://api.openweathermap.org/data/2.5/weather?lat=${payload.currentLat}&lon=${payload.currentLon}&units=imperial&appid=${this.state.openWeatherKey}`,
       }).then((res) => {
         commit('setWeatherData', res.data) ;
       });
