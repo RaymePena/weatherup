@@ -11,6 +11,7 @@ export default new Vuex.Store({
       currentLon: -111.876183,
       map: null,
       marker: null,
+      openWeatherKey: process.env.VUE_APP_OPEN_WEATHER
   },
 
   getters:{
@@ -65,7 +66,7 @@ export default new Vuex.Store({
     getWeatherData({commit}, payload){
       axios({
         method: "get",
-        url: `http://api.openweathermap.org/data/2.5/weather?lat=${payload.currentLat}&lon=${payload.currentLon}&units=imperial&appid=6d78fcf2b6ddf4f00ae680a37639b3d6`,
+        url: `http://api.openweathermap.org/data/2.5/weather?lat=${payload.currentLat}&lon=${payload.currentLon}&units=imperial&appid=${this.state.openWeatherKey}`,
       }).then((res) => {
         commit('setWeatherData', res.data) ;
       });

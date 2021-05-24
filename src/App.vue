@@ -96,13 +96,14 @@ export default {
     };
   },
   mounted() {
+    console.log()
     this.initMap();
     this.$store.dispatch('getWeatherData', this.locationCoordinates)
   },
 
   methods: {
     initMap: async function() {
-      const loader = new Loader("AIzaSyDWlf_6g_PrBIvBs5tyj92-M3f7NrRHCd8");
+      const loader = new Loader(process.env.VUE_APP_GOOGLE_API);
       const google = await loader.load();
       console.log(google);
       this.map = new google.maps.Map(document.getElementById("map"), {
